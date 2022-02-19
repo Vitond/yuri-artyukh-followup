@@ -1,0 +1,41 @@
+@import 'abstracts/variables.scss';
+@import 'base/base.scss';
+
+.CSScanvas {
+    position: relative;
+
+    width: 800px;
+    height: 600px;
+}
+img {
+    width:800px;
+    height: 600px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: block;
+}
+.img_2.hide{
+    -webkit-mask: url(../img/nature-sprite.png);
+    mask: url(../img/nature-sprite.png);
+    -webkit-mask-size: 2300% 100%;
+    mask-size: 2300% 100%;
+    -webkit-animation: mask-play 1.4s steps(22) forwards;
+    animation: mask-play 1.4s steps(22) forwards;
+
+    @keyframes mask-play {
+        from {
+          -webkit-mask-position: 0% 0;
+          mask-position: 0% 0;
+        }
+        to {
+          -webkit-mask-position: 100% 0;
+          mask-position: 100% 0;
+        }
+    }
+}
+.canvas {
+    background-image: url('../img/1.jpg');
+}

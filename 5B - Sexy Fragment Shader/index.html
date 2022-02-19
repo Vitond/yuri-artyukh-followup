@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Coding Project &middot;</title>
+    <script type="module" defer src="js/index.js"></script>
+    <link rel="stylesheet" href="css/style.min.css" />
+  </head>
+  <body>
+    <div id="container"></div>
+    <canvas id="canvas"> </canvas>
+    <script id="fragmentShader" type="x-shader/x-fragment">
+      varying vec2 vUv;
+      uniform vec2 u_resolution;
+      uniform vec2 u_mouse;
+      uniform float u_time;
+      uniform sampler2D texture;
+      uniform sampler2D map;
+      uniform float u_animation;
+
+      void main() {
+        float distort = sin(vUv.y*80.0+u_time)*0.0005;
+        vec4 texture = texture2D(texture, vec2(vUv.x + distort, vUv.y - distort));
+        gl_FragColor = vec4(texture.g, texture.r, texture.b, 1);
+      }
+    </script>
+    <script id="vertexShader" type="x-shader/x-vertex">
+      varying vec2 vUv;
+      uniform vec2 u_size;
+      uniform vec2 u_resolution;
+      void main() {
+      vUv = vec2(position.x+0.5, position.y+0.99)*0.9;
+      float scalex,scaley;
+      scalex = u_size.x/(u_resolution.x);
+      scaley = u_size.y/(u_resolution.y);
+      vUv.x = vUv.x/scalex;
+      vUv.y = vUv.y/scaley;
+      gl_Position =  vec4(position, 1.0);
+      }
+    </script>
+  </body>
+</html>
