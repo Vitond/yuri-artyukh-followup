@@ -1,0 +1,55 @@
+@import 'abstracts/variables.scss';
+@import 'base/base.scss';
+
+@mixin title {
+    color: #FFF;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    position: absolute;
+    bottom: 100px;
+    left: 20px;
+}
+
+body {
+    overflow: hidden;
+}
+
+.items {
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+    white-space: nowrap;
+    font-size: 0px;
+}
+.item {
+    display: inline-block;
+    width: 33.33%;
+    height: 100vh;
+    font-size: 25px;
+    position: relative;
+    overflow: hidden;
+    &__title {
+        @include title;
+    }
+    &__bg {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-size: cover;
+        //background-position: 50% 50%;
+        background-repeat: no-repeat;
+        transform: translate(-30%, 0);
+    }
+    &:hover {
+        & .item__title {
+            transform: translate(0, -30px);
+        }
+    }
+}
+.is-cloned {
+    position: absolute !important;
+    top: 0;
+}

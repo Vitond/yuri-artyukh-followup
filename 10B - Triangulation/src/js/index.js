@@ -1,8 +1,8 @@
 import * as PIXI from "pixi.js";
 import Delaunator from "delaunator";
 
-const width = 1920;
-const height = 1080;
+const width = 1400;
+const height = 1400;
 
 const app = new PIXI.Application(width, height, { transparent: true});
 document.body.appendChild(app.view);
@@ -19,7 +19,7 @@ let vertices = new Array(
     );
     app.renderer.resize(width, height);
     
-    for (let j = 0; j < 1000; j++) {
+    for (let j = 0; j < 200; j++) {
         vertices.push(Math.random()*width);
         vertices.push(Math.random()*height);
         // vertices.push(
@@ -34,7 +34,7 @@ let vertices = new Array(
     const coords = delaunay.triangles;
     console.log(coords);    
     for (let i = 0; i < coords.length; i+= 3) {
-        graphics.beginFill(0xFF6600, (1 - (i/coords.length))*Math.random()*0.5);
+        graphics.beginFill(0xFFFFBF, (1 - (i/coords.length))*Math.random()*0.6 + 0.1);
         //graphics.lineStyle(1);
         graphics.moveTo(vertices[2*coords[i]], vertices[2*coords[i] + 1]);
         graphics.lineTo(vertices[2*coords[i+1]], vertices[2*coords[i+1] + 1]);
