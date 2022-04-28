@@ -1,0 +1,19 @@
+@import 'abstracts/variables.scss';
+@import 'base/base.scss';
+
+.section {
+    height: 60vh;
+    text-align: center;
+    line-height: 60vh;
+    font-size: 100px;
+    border: 10px solid green;
+    &.hasArrived {
+        background: green;
+        color: #FFF;
+        transition: all .25s linear;
+    }
+}
+
+svg {
+    overflow: visible;
+}
