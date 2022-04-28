@@ -1,0 +1,16 @@
+@import 'abstracts/variables.scss';
+@import 'base/base.scss';
+
+#canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1920;
+    height: 1080;
+}
